@@ -1,80 +1,44 @@
-import { useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
+import "./index.css";
 import "./App.css";
 
-interface Student {
-  id: number;
-  name: string;
-}
-
-function Profiles() {
-  const students: Student[] = [
-    { id: 1, name: "John" },
-    { id: 2, name: "nita" },
-    { id: 3, name: "andrew" },
-    { id: 4, name: "phak" },
-  ];
+const App: React.FC = () => {
   return (
-    <ul>
-      {students.map((student) => {
-        return (
-          <Profile
-            key={student.id}
-            student={student}
-            onProfileClick={console.log}
-          />
-        );
-      })}
-    </ul>
+    <div className="profile-card">
+      <div className="profile-image-container">
+        <img
+          src="https://p-u.popcdn.net/event_details/posters/000/015/476/large/ad9835c4c331028d648d8dfe1af0e30d498ed727.png?1688482510"
+          alt="Profile"
+          className="profile-image"
+        />
+      </div>
+      <div className="profile-info">
+        <h1>BNK48 3rd Generation Concert "Rabbit in Wonderland"</h1>
+        <p>
+          The first major concert of BNK48's 3rd Generation, spanning over a
+          period of more than 2 years, is about to take place.
+        </p>
+        <p>
+          Debuting as the full-fledged BNK48, this group of bunnies is ready to
+          emerge from the forest and shine brightly. They will showcase their
+          full abilities in singing, playing instruments, and dancing in the
+          BNK48 3rd Generation Concert, "Rabbit in Wonderland."
+        </p>
+        <p>
+          If you don't want to miss out on the fun, entertainment, and
+          heartwarming moments that you've never seen before, don't forget to
+          come and join us.
+        </p>
+        <a
+          href="https://www.eventpop.me/e/15476/3rd-gen-concert"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link"
+        >
+          Buy Ticket
+        </a>
+      </div>
+    </div>
   );
-}
-
-type ProfileProps = {
-  student: Student;
-  onProfileClick: (student: Student) => void;
 };
-
-function Profile({ student, onProfileClick }: ProfileProps) {
-  return (
-    <li
-      onClick={() => {
-        onProfileClick(student);
-      }}
-    >
-      name: [{student.id}] {student.name}
-    </li>
-  );
-}
-
-function Counter() {
-  const [counter, setCounter] = useState<number>(0);
-  return (
-    <>
-      <p onClick={() => setCounter(counter + 1)}>
-        Increase counter : {counter}
-      </p>
-    </>
-  );
-}
-
-function App() {
-  const name = "nita";
-  const age = "22";
-  const isLoading = true;
-
-  return (
-    <>
-      <Counter></Counter>
-      <h1>Hello {name}</h1>
-      <h1>You are {age} years old.</h1>
-      {isLoading ? <p>Loading ...</p> : <p>Loaded</p>}
-      <br />
-      <Profiles />
-      {/* <Profiles></Profiles>
-      {Profiles()} */}
-    </>
-  );
-}
 
 export default App;
